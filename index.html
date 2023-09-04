@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Exercicio querySelectorAll e setAttribute</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="card">
+            <h2 class="titulo-card">Growdev</h2>
+            <p class="descricao-card">Full Stack </p>
+            <button class="botao-editar">Editar</button>
+            <button class="botao-apagar">Deletar</button>
+        </div>
+        <div class="card">
+            <h2 class="titulo-card">Growdev</h2>
+            <p class="descricao-card">UX/UI Designer</p>
+            <button class="botao-editar">Editar</button>
+            <button class="botao-apagar">Deletar</button>
+        </div>
+        <div class="card">
+            <h2 class="titulo-card">Growdev</h2>
+            <p class="descricao-card">Data Science</p>
+            <button class="botao-editar">Editar</button>
+            <button class="botao-apagar">Deletar</button>
+        </div>
+        <div class="card">
+            <h2 class="titulo-card">Growdev</h2>
+            <p class="descricao-card">Quality Assurance</p>
+            <button class="botao-editar">Editar</button>
+            <button class="botao-apagar">Deletar</button>
+        </div>
+        <div class="card">
+            <h2 class="titulo-card">Growdev</h2>
+            <p class="descricao-card">Advanced Mobile</p>
+            <button class="botao-editar">Editar</button>
+            <button class="botao-apagar">Deletar</button>
+        </div>
+    </div>
+    <body>
+        <!-- Conteúdo HTML -->
+    
+        <script>
+            function editarCard() {
+                alert("Clicou em editar");
+            }
+    
+            function apagarCard() {
+                if (confirm("Tem certeza da exclusão do card?")) {
+                    alert("Confirmado!");
+                } else {
+                    alert("Cancelou!");
+                }
+            }
+    
+            const arrCards = document.querySelectorAll(".card");
+    
+            for (const card of arrCards) {
+                card.style.backgroundColor = "#e07137";
+            }
+    
+            const arrTituloCard = document.querySelectorAll(".titulo-card");
+            arrTituloCard.forEach((tituloCard) => {
+                tituloCard.innerText = "Meu Card";
+                tituloCard.style.color = "#2b385b";
+            });
+    
+            const arrayCardDescription = document.querySelectorAll(".descricao-card");
+    
+            for (const description of arrayCardDescription) {
+                description.innerText = "Descrição modificada pelo JavaScript";
+                description.style.color = "white";
+            }
+    
+            const btnEditar = document.querySelectorAll(".botao-editar");
+    
+            btnEditar.forEach((button) => {
+                button.style.backgroundColor = "#338105";
+                button.style.padding = "10px";
+                button.style.border = "none";
+                button.style.borderRadius = "5px";
+                button.style.color = "white";
+                button.style.marginTop = "30px";
+    
+                // Corrigido: Adicionar o evento onclick para chamar a função editarCard()
+                button.addEventListener("click", editarCard);
+            });
+    
+            const btnApagar = document.querySelectorAll(".botao-apagar");
+            btnApagar.forEach((button) => {
+                button.style.backgroundColor = "#f8433f";
+                button.style.padding = "6px";
+                button.style.border = "none";
+                button.style.borderRadius = "10px";
+                button.style.color = "white";
+                button.style.marginTop = "30px";
+    
+                // Corrigido: Adicionar o evento onclick para chamar a função apagarCard()
+                button.addEventListener("click", apagarCard);
+            });
+    
+        </script>
+    </body>
+    
+</html>
